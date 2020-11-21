@@ -11,7 +11,7 @@ class Item(BaseModel):
 app = FastAPI()
 
 
-@app.get("/hello")
+@app.get("/")
 async def create_item():
 
     return {"mensagem":"hello word"}
