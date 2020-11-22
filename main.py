@@ -19,7 +19,9 @@ async def create_item(item: Item):
     score = analyser.polarity_scores(item.mensagem) # avaliação de polaridade de sentimento da mensagem
     compound = (analyser.polarity_scores(item.mensagem)['compound'])  # capitura da média do sentimento da mensagem
     if compound > 0:
-      mensagemSentimento = "mensagem positiva"
+      mensagemSentimento = "noticia positiva" 
+    elif compound >= 0:
+      mensagemSentimento = "noticia neutra" 
     else:
-      mensagemSentimento = "mensagem negativa"
+      mensagemSentimento = "noticia negativa"
     return {"mensagem":item.mensagem,"sentimento":mensagemSentimento}
